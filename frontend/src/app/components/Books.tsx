@@ -43,8 +43,13 @@ export const Books: React.FC<props> = ({ api }) => {
       .catch((e) => {
         console.log("error happened: ", e);
       });
-      
-    setRefresh((prev)=>!prev);
+      setBookForm({
+        id: "",
+        name: "",
+        img: "",
+        price: 0,
+      });
+      setRefresh((prev)=>!prev);
   }
 
   useEffect(() => {
@@ -98,7 +103,8 @@ export const Books: React.FC<props> = ({ api }) => {
             <div className="flex gap-x-3">
                 <input
                 type="text"
-                className="py-1 my-3 w-2/6 text-slate-950 rounded-xl"
+                placeholder="Book-id"
+                className="py-1 px-3 my-3 w-2/6 text-slate-950 rounded-xl"
                 value={bookForm.id}
                 onChange={(e) =>
                     setBookForm({
@@ -109,7 +115,8 @@ export const Books: React.FC<props> = ({ api }) => {
                 />
                 <input
                 type="text"
-                className="py-1 my-3 w-4/6 text-slate-950 rounded-xl"
+                placeholder="Book name"
+                className="py-1 px-3 my-3 w-4/6 text-slate-950 rounded-xl"
                 value={bookForm.name}
                 onChange={(e) =>
                     setBookForm({
@@ -121,7 +128,8 @@ export const Books: React.FC<props> = ({ api }) => {
             </div>
             <input
               type="text"
-              className="p-1 m-3 w-full text-slate-950 rounded-xl"
+              className="p-1 px-6 m-3 w-full text-slate-950 rounded-xl"
+              placeholder="Book image url"
               value={bookForm.img}
               onChange={(e) =>
                 setBookForm({
@@ -137,10 +145,11 @@ export const Books: React.FC<props> = ({ api }) => {
               height={230}
               className="rounded-xl"
             />
-            <div className="flex gap-x-28">
+            <div className="flex gap-x-16">
               <input
                 type="number"
-                className="ml-9 my-3 w-3/12 text-slate-950 rounded-xl"
+                className="ml-16 my-3 px-3 py-1 w-4/12 text-slate-950 rounded-xl"
+                placeholder="book price"
                 value={bookForm.price}
                 onChange={(e) =>
                   setBookForm({
@@ -150,7 +159,7 @@ export const Books: React.FC<props> = ({ api }) => {
                 }
               />
               <button
-                className="px-3 py-1 my-3 text-lg bg-green-500 text-blue-900 rounded-xl"
+                className="px-4 py-2 my-3 text-lg bg-green-500 text-blue-900 rounded-xl"
                 onClick={handleAdding}
               >
                 add
