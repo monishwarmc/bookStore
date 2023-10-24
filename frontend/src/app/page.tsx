@@ -3,7 +3,7 @@ import Navbar from './components/Navbar'
 
 export default function Home() {
 
-  const api : string = "https://54.224.234.234/books";
+  const api : string = "http://54.224.234.234/books";
   
   return (
     <>
