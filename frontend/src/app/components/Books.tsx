@@ -69,7 +69,7 @@ export const Books: React.FC<props> = ({ api }) => {
   }, [refresh]);
 
   return (
-    <div className="grid grid-cols-3 gap-9 mx-16 my-6 items-center justify-center">
+    <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-9 mx-16 my-6 items-center justify-center">
       {books.map((book: book) => (
         <Book
           key={book.id}
