@@ -1,6 +1,6 @@
 # Book Store App
 
-Welcome to the Book Store App! This application is built using Next.js for the frontend, Spring Boot for the backend, and AWS DynamoDB for data storage. You can access the live deployment of this app at <a href="https://book-store-monishwarmc.vercel.app" target="_blank">Visit the live deployment</a>.
+Welcome to the Book Store App! This application is built using Next.js for the frontend, Spring Boot for the backend, and AWS DynamoDB for data storage. You can access the live deployment of this app at [book-store-monishwarmc.vercel.app](https://book-store-monishwarmc.vercel.app).
 
 ## Features
 
