@@ -1,7 +1,7 @@
-.vscode
+/.vscode
 */.next
 */.vscode
-bookstorePemFile.pem
+/bookstorePemFile.pem
 
 
 ### backend ###
@@ -38,7 +38,7 @@ bookstorePemFile.pem
 */!**/src/test/**/build/
 
 ### VS Code ###
-.vscode/
+/.vscode/
 
 
 ### frontend ###
