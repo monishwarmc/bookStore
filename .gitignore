@@ -1,7 +1,8 @@
 /.vscode
 */.next
 */.vscode
-/bookstorePemFile.pem
+
+*/bookstorePemFile.pem
 
 
 ### backend ###
