@@ -14,11 +14,15 @@ public class booksRepo {
     @Autowired
     private DynamoDBMapper mapper;
 
-    public void add(final book book){
+    public void update(final book book){
         if(book.getId() != null)
             mapper.save(book);
         else
             System.out.println("Please provide id");
+    }
+
+    public void add(final book book){
+        mapper.save(book);
     }
 
     public book get(final String id){

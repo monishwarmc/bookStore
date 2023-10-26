@@ -31,7 +31,7 @@ public class bookControl {
 
     @PutMapping("books")
     public void update(@RequestBody book book){
-        booksRepo.add(book);
+        booksRepo.update(book);
     }
 
     @DeleteMapping("books/{id}")
