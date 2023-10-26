@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { useEffect, useState } from "react";
 
 export interface book {
@@ -33,16 +32,14 @@ const Book : React.FC<props> = ({book, api, setRefresh}) => {
       if(!res.ok){
         console.log("res not ok");
       }
+      else{
+        setRefresh((prev)=>!prev);
+      }
       return res.json();
-    })
-    .then(data => {
-      console.log(data);
     })
     .catch(e => {
       console.log("error happened: ", e);
     })
-    
-    setRefresh((prev)=>!prev);
   }
 
   useEffect(()=>{
@@ -57,6 +54,9 @@ const Book : React.FC<props> = ({book, api, setRefresh}) => {
       .then(res => {
         if(!res.ok){
           console.log("res not ok");
+        }
+        else{
+          setRefresh((p)=>!p);
         }
         return res.json();
       })
@@ -94,7 +94,7 @@ const Book : React.FC<props> = ({book, api, setRefresh}) => {
             })
           }
           />
-          <Image src={bookForm.img} alt={bookForm.id} 
+          <img src={bookForm.img} alt={bookForm.id} 
           width={230}
           height={230}
           className="rounded-xl"
@@ -116,13 +116,9 @@ const Book : React.FC<props> = ({book, api, setRefresh}) => {
       </div>
       : <div className="flex flex-col items-center justify-center"
     >
-      <div className="flex gap-x-1"
-        ><h2 className="text-3xl p-3 text-purple-600"
-        >#{bookForm.id}</h2>
-          <h2 className="text-3xl text-cyan-300 p-3"
+        <h2 className="text-3xl text-cyan-300 p-3"
         >{bookForm.name}</h2>
-        </div>
-        <Image src={bookForm.img} alt={book.name} 
+        <img src={bookForm.img} alt={bookForm.id} 
         width={300}
         height={300}
         className="rounded-xl"

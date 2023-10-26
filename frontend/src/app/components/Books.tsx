@@ -2,17 +2,21 @@
 
 import { useEffect, useState } from "react";
 import Book, { book } from "./Book";
-import Image from "next/image";
 
 type props = {
   api: string;
 };
 
+export interface addBook {
+  name: string;
+  img: string;
+  price: number;
+}
+
 export const Books: React.FC<props> = ({ api }) => {
   const [books, setBooks] = useState<book[]>([]);
   const [add, setAdd] = useState<boolean>(true);
-  const [bookForm, setBookForm] = useState<book>({
-    id: "",
+  const [bookForm, setBookForm] = useState<addBook>({
     name: "",
     img: "",
     price: 0,
@@ -35,6 +39,9 @@ export const Books: React.FC<props> = ({ api }) => {
         if (!res.ok) {
           console.log("res not ok");
         }
+        else{
+          setRefresh((prev)=>!prev);
+        }
         return res.json();
       })
       .then((data) => {
@@ -44,12 +51,10 @@ export const Books: React.FC<props> = ({ api }) => {
         console.log("error happened: ", e);
       });
       setBookForm({
-        id: "",
         name: "",
         img: "",
         price: 0,
       });
-      setRefresh((prev)=>!prev);
   }
 
   useEffect(() => {
@@ -100,19 +105,6 @@ export const Books: React.FC<props> = ({ api }) => {
         </div>
         ) : (
         <div className="flex flex-col items-center justify-center">
-            <div className="flex gap-x-3">
-                <input
-                type="text"
-                placeholder="Book-id"
-                className="py-1 px-3 my-3 w-2/6 text-slate-950 rounded-xl"
-                value={bookForm.id}
-                onChange={(e) =>
-                    setBookForm({
-                    ...bookForm,
-                    id: e.target.value,
-                    })
-                }
-                />
                 <input
                 type="text"
                 placeholder="Book name"
@@ -125,7 +117,6 @@ export const Books: React.FC<props> = ({ api }) => {
                     })
                 }
                 />
-            </div>
             <input
               type="text"
               className="p-1 px-6 m-3 w-full text-slate-950 rounded-xl"
@@ -138,7 +129,7 @@ export const Books: React.FC<props> = ({ api }) => {
                 })
               }
             />
-            <Image
+            <img
               src={bookForm.img}
               alt={bookForm.name}
               width={230}
