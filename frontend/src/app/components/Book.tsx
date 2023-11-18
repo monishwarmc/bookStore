@@ -98,7 +98,7 @@ const Book : React.FC<props> = ({book, api, setRefresh}) => {
           <img src={bookForm.img} alt={bookForm.id} 
           width={230}
           height={230}
-          className="rounded-xl hover:p-1"
+          className="rounded-xl"
           />
           <div className="flex gap-x-28"
           ><input
@@ -119,13 +119,13 @@ const Book : React.FC<props> = ({book, api, setRefresh}) => {
     >
         <h2 className="text-3xl text-cyan-300 p-3"
         >{bookForm.name}</h2>
-        <a href={bookForm.img} target="_blank">
+        <Link href={bookForm.img} target="_blank" key={bookForm.id}>
             <img src={bookForm.img} alt={bookForm.id} 
             width={300}
             height={300}
-            className="rounded-xl"
+            className="rounded-xl hover:p-1"
             />
-        </a>
+        </Link>
         <div className="flex gap-x-6"
         ><h3 className="text-lg p-1 m-3 text-amber-200"
         >${bookForm.price}</h3>
