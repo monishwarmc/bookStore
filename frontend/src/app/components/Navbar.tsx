@@ -6,8 +6,8 @@ const Navbar = () => {
     >
     <Link href="https://example.com">
       <a target="_blank" rel="noopener noreferrer"
-        className="hover:bg-blue-500">
-        <h1 className="text-6xl hover:text-5xl font-bold p-3"
+        className="hover:bg-sky-900 rounded-3xl">
+        <h1 className="text-6xl hover:underline font-bold p-3"
         >Book Store</h1>
       </a>
     </Link>
