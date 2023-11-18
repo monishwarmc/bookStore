@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react";
+import Link from 'next/link';
 
 export interface book {
     id : string;
@@ -94,13 +95,13 @@ const Book : React.FC<props> = ({book, api, setRefresh}) => {
             })
           }
           />
-          <a href={bookForm.img} target="_blank">
+          <Link href={bookForm.img} target="_blank">
               <img src={bookForm.img} alt={bookForm.id} 
               width={230}
               height={230}
               className="rounded-xl hover:p-1"
               />
-          </a>
+          </Link>
           <div className="flex gap-x-28"
           ><input
             type="number"
